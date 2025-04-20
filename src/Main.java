@@ -6,8 +6,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         InputValidator validator = new InputValidator();
 
-        System.out.println("=== Многоразовый калькулятор ===");
-        System.out.println("Чтобы выйти, введи 'exit' вместо числа.\n");
+        System.out.println("Калькулятор");
+        System.out.println("Чтобы выйти, введи 'exit'.\n");
 
         while (true) {
             System.out.println("Выберите систему счисления: 1-DEC, 2-BIN, 3-OCT, 4-HEX");
