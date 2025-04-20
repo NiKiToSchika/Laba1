@@ -23,13 +23,24 @@ public class Main {
             }
 
 
-            Calculator calc = switch (choice) {
-                case 1 -> new DecimalCalculator();
-                case 2 -> new BinaryCalculator();
-                case 3 -> new OctalCalculator();
-                case 4 -> new HexCalculator();
-                default -> throw new IllegalArgumentException("Неверный выбор");
-            };
+            Calculator calc;
+            switch (choice) {
+                case 1:
+                    calc = new DecimalCalculator();
+                    break;
+                case 2:
+                    calc = new BinaryCalculator();
+                    break;
+                case 3:
+                    calc = new OctalCalculator();
+                    break;
+                case 4:
+                    calc = new HexCalculator();
+                    break;
+                default:
+                    System.out.println("Ошибка: допустимые значения — от 1 до 4.");
+                    continue;
+            }
 
             System.out.println("Введите первое число:");
             String str1 = scanner.nextLine();
