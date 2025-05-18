@@ -1,18 +1,14 @@
+// Класс для проверки корректности ввода чисел в заданной системе счисления
 public class InputValidator {
 
-    public boolean isValid(String input, Calculator calculator) {
-        int base = switch (calculator.getSystemName()) {
-            case "BIN" -> 2;
-            case "OCT" -> 8;
-            case "HEX" -> 16;
-            default -> 10; // DEC или всё остальное по умолчанию — десятичная
-        };
-
+    // Проверяет, можно ли строку value корректно преобразовать в число с указанным основанием base
+    public static boolean isValid(String value, int base) {
         try {
-            Integer.parseInt(input, base);
-            return true;
+            // Пытаемся распарсить строку с заданным основанием
+            Integer.parseInt(value, base);
+            return true; // если успешно — возвращаем true
         } catch (NumberFormatException e) {
-            return false;
+            return false; // если ошибка — ввод некорректен
         }
     }
 }

@@ -1,17 +1,44 @@
-public class OctalCalculator extends Calculator {
+public class OctalCalculator extends BaseCalculator {
 
     @Override
-    public int parse(String input) {
-        return Integer.parseInt(input, 8);
+    public int getBase() {
+        return 8;
     }
 
     @Override
-    public String format(int number) {
-        return Integer.toOctalString(number);
+    public int parse(String value) {
+        return Integer.parseInt(value, 8);
     }
 
     @Override
-    public String getSystemName() {
+    public String format(int value) {
+        return Integer.toOctalString(value);
+    }
+
+    @Override
+    public String calculate(String a, String b, String op) {
+        int num1 = parse(a);
+        int num2 = parse(b);
+        int result = switch (op) {
+            case "+" -> num1 + num2;
+            case "-" -> num1 - num2;
+            case "*" -> num1 * num2;
+            case "/" -> {
+                if (num2 == 0) throw new ArithmeticException("Деление на ноль!");
+                yield num1 / num2;
+            }
+            default -> throw new IllegalArgumentException("Неизвестная операция: " + op);
+        };
+        return format(result);
+    }
+
+    @Override
+    public int toDecimal(String value) {
+        return parse(value);
+    }
+
+    @Override
+    public String getName() {
         return "OCT";
     }
 }

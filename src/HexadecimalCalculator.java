@@ -1,18 +1,18 @@
-public class BinaryCalculator extends BaseCalculator {
+public class HexadecimalCalculator extends BaseCalculator {
 
     @Override
     public int getBase() {
-        return 2;
+        return 16;
     }
 
     @Override
     public int parse(String value) {
-        return Integer.parseInt(value, 2);
+        return Integer.parseInt(value, 16);
     }
 
     @Override
     public String format(int value) {
-        return Integer.toBinaryString(value);
+        return Integer.toHexString(value).toUpperCase();
     }
 
     @Override
@@ -39,6 +39,6 @@ public class BinaryCalculator extends BaseCalculator {
 
     @Override
     public String getName() {
-        return "BIN";
+        return "HEX";
     }
 }
